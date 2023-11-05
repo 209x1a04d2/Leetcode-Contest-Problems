@@ -1,0 +1,20 @@
+class Solution {
+    public int findChampion(int n, int[][] edges) {
+        int cnt[] = new int[n];
+        int m = edges.length;
+        for(int i = 0;i<m;i++){
+            cnt[edges[i][1]]++;
+        }
+        int x = -1,ans=-1;
+        for(int i = 0;i<n;i++){
+            if(cnt[i] == 0){
+                x++;
+                ans = i;
+            }
+        }
+        if(x==0){
+            return ans;
+        }
+        return -1;
+    }
+}
