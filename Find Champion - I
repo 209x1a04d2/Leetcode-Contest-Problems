@@ -1,0 +1,22 @@
+class Solution {
+    public int findChampion(int[][] grid) {
+        int flag = -1,champ = Integer.MIN_VALUE,defeat = Integer.MIN_VALUE;
+        int n = grid.length, m = grid[0].length;
+        for(int i = 0;i<n;i++){
+            for(int j = 0;j<m;j++){
+                if(grid[i][j]==1 && i!=j){
+                    if(flag == -1){
+                        champ = i;
+                        defeat = j;
+                        flag = 1;
+                    }
+                    if(j == champ){
+                        champ = i;
+                        defeat = j;
+                    }
+                }
+            }
+        }
+        return champ;
+    }
+}
